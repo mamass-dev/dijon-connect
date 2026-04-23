@@ -4,78 +4,70 @@ import { Logo } from "@/components/Logo";
 import { members, allCategories, allCities } from "@/lib/members";
 
 export default function Home() {
-  const stats = [
-    { label: "Membres", value: members.length },
-    { label: "Secteurs", value: allCategories.length },
-    { label: "Communes", value: allCities.length },
-  ];
-
   return (
     <>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6">
-        <Logo />
-        <a
-          href="#annuaire"
-          className="hidden rounded-full border border-[var(--color-line)] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)] transition hover:border-[var(--color-accent-soft)] hover:text-[var(--color-accent)] sm:inline-block"
-        >
-          Voir l'annuaire
-        </a>
+      <header className="sticky top-0 z-30 border-b border-[var(--color-line)]/60 bg-[var(--color-bg)]/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-5 md:py-4">
+          <Logo />
+          <a
+            href="#annuaire"
+            className="rounded-full border border-[var(--color-line)] bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)] transition active:scale-95 md:px-4 md:py-2 md:text-xs"
+          >
+            Annuaire
+          </a>
+        </div>
       </header>
 
       <main className="flex flex-1 flex-col">
-        <section className="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-6 md:pb-16 md:pt-10">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-gradient-to-br from-[var(--color-brand)] via-[#14243c] to-[#1d2f4b] p-8 text-white shadow-[0_40px_80px_-40px_rgba(11,26,46,0.5)] md:p-14">
+        <section className="mx-auto w-full max-w-6xl px-4 pt-4 md:px-5 md:pt-8">
+          <div className="relative overflow-hidden rounded-3xl border border-[var(--color-line)] bg-gradient-to-br from-[var(--color-brand)] via-[#14243c] to-[#1d2f4b] p-6 text-white shadow-[0_24px_60px_-30px_rgba(11,26,46,0.45)] md:rounded-[2rem] md:p-14">
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(184,138,62,0.4),_transparent_70%)]"
+              className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(184,138,62,0.42),_transparent_70%)] md:-right-24 md:-top-24 md:h-72 md:w-72"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,_rgba(217,184,119,0.25),_transparent_70%)]"
+              className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(217,184,119,0.22),_transparent_70%)] md:-bottom-32 md:-left-20 md:h-80 md:w-80"
             />
             <div className="relative max-w-2xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent-soft)] md:px-3 md:text-[10px] md:tracking-[0.24em]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-soft)]" />
                 Réseau d'affaires · Dijon
               </span>
-              <h1 className="mt-5 font-display text-4xl leading-[1.05] md:text-6xl">
-                Le carnet d'adresses vivant du{" "}
+              <h1 className="mt-4 font-display text-[2rem] leading-[1.05] md:mt-5 md:text-6xl">
+                Le carnet d'adresses du{" "}
                 <span className="text-[var(--color-accent-soft)]">réseau Dijon Connect</span>.
               </h1>
-              <p className="mt-5 max-w-xl text-base text-white/75 md:text-lg">
-                Une carte NFC, un scan, un réseau. Retrouvez l'ensemble des entrepreneurs qui
-                font vivre notre club — et ajoutez-les en un clic à vos contacts.
+              <p className="mt-3 text-sm text-white/75 md:mt-5 md:max-w-xl md:text-lg">
+                Un scan, un réseau. Retrouvez nos {members.length} membres et ajoutez-les à vos
+                contacts en un clic.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-5 flex items-center gap-2.5 md:mt-8 md:gap-3">
                 <a
                   href="#annuaire"
-                  className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-[var(--color-brand)] transition hover:bg-[var(--color-accent-soft)]"
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-3 text-sm font-semibold text-[var(--color-brand)] transition active:scale-[0.98] md:flex-initial md:px-5 md:hover:bg-[var(--color-accent-soft)]"
                 >
-                  Parcourir l'annuaire
+                  Voir les membres
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
-                <a
-                  href="https://www.dijon-connect.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white/90 transition hover:border-white/60 hover:text-white"
-                >
-                  Découvrir le club
-                  <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </a>
               </div>
 
-              <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4">
-                {stats.map((s) => (
-                  <div key={s.label} className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm">
-                    <dt className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent-soft)]">
+              <dl className="mt-6 grid grid-cols-3 gap-2 md:mt-10 md:max-w-lg md:gap-4">
+                {[
+                  { label: "Membres", value: members.length },
+                  { label: "Secteurs", value: allCategories.length },
+                  { label: "Communes", value: allCities.length },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-xl border border-white/15 bg-white/5 p-3 backdrop-blur-sm md:rounded-2xl md:p-4"
+                  >
+                    <dt className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-soft)] md:text-[10px] md:tracking-[0.22em]">
                       {s.label}
                     </dt>
-                    <dd className="mt-1 font-display text-3xl text-white">{s.value}</dd>
+                    <dd className="mt-0.5 font-display text-2xl text-white md:mt-1 md:text-3xl">{s.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -83,16 +75,12 @@ export default function Home() {
           </div>
         </section>
 
-        <div id="annuaire" className="scroll-mt-6">
-          <div className="mx-auto max-w-6xl px-5 pb-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--color-accent)]">
+        <div id="annuaire" className="scroll-mt-20 md:scroll-mt-24">
+          <div className="mx-auto max-w-6xl px-4 pb-2 pt-8 md:px-5 md:pt-14">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)] md:tracking-[0.28em]">
               Annuaire
             </p>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl">Nos membres</h2>
-            <p className="mt-2 max-w-2xl text-[var(--color-ink-soft)]">
-              Des experts, partenaires et chefs d'entreprise engagés pour faire rayonner
-              l'économie locale. Cliquez sur une fiche pour en savoir plus.
-            </p>
+            <h2 className="mt-1.5 font-display text-2xl md:mt-2 md:text-4xl">Nos membres</h2>
           </div>
           <Directory members={members} categories={allCategories} cities={allCities} />
         </div>

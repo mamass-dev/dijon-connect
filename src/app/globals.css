@@ -20,7 +20,22 @@ html, body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
 }
+
+input, select, textarea {
+  font-size: 16px; /* iOS : évite le zoom au focus */
+}
+@media (min-width: 768px) {
+  input, select, textarea { font-size: inherit; }
+}
+
+/* Scroll horizontal sans scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Safe-area pour notch iOS */
+.safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
 
 .font-display {
   font-family: var(--font-display);
